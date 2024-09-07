@@ -9,13 +9,15 @@ class MyThemeData {
       scaffoldBackgroundColor: ColorResources.bgLightColor,
 
       appBarTheme: AppBarTheme(
-        backgroundColor: ColorResources.primaryLightColor,
+        // backgroundColor: ColorResources.primaryLightColor,
         elevation: 0,
       ),
 
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: ColorResources.primaryLightColor,
+        backgroundColor: ColorResources.babyBlue,
+
         shape: RoundedRectangleBorder(
+
           borderRadius: BorderRadius.circular(100),
           side: BorderSide(color: ColorResources.white, width: 4),
         ),
@@ -48,14 +50,33 @@ class MyThemeData {
         titleLarge: GoogleFonts.poppins(
           color: ColorResources.white,
           fontWeight: FontWeight.bold,
-          fontSize: 22,
+          fontSize: 18,
         ),
 
-        titleMedium: GoogleFonts.roboto(
-          color:ColorResources.blackText ,
-          fontSize:21 ,
-          fontWeight: FontWeight.bold ,
-        )
+        titleSmall: GoogleFonts.poppins(
+          color:ColorResources.lightGray ,
+          fontSize:14 ,
+          fontWeight: FontWeight.w400 ,
+        ),
+
+          titleMedium: GoogleFonts.poppins(
+            color:ColorResources.blackText ,
+            fontSize:25 ,
+            fontWeight: FontWeight.w500 ,
+          ),
+
+        bodyMedium: GoogleFonts.poppins(
+          color:ColorResources.lightGray ,
+          fontSize:14 ,
+          fontWeight: FontWeight.w400 ,
+          ),
+
+          bodyLarge: GoogleFonts.poppins(
+            color:ColorResources.babyBlue ,
+            fontSize:18 ,
+            fontWeight: FontWeight.bold ,
+          )
+
       )
   );
 

@@ -14,12 +14,18 @@ class SettingsTab extends StatelessWidget {
         Stack(
           children: [
             Container(
-              color: ColorResources.primaryLightColor,
-              height: height * 0.11,
-            )
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[Color(0xFF4196E3), Color(0xFF373598)]),
+              ),
+              // color: ColorResources.primaryLightColor,
+              height: height * 0.13,
+            ),
           ],
         )
       ],
-    );;
+    );
   }
 }

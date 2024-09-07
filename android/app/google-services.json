@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "494923511027",
+    "project_id": "newtodoapp-3f210",
+    "storage_bucket": "newtodoapp-3f210.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494923511027:android:bc0e9a4f80c63d31bd3386",
+        "android_client_info": {
+          "package_name": "com.example.to_do_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1IXO_sjLH_Gy5BH0VI8TEspLA0x-1S8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

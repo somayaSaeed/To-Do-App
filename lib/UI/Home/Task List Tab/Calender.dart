@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../Utils/Color Resources/Color_Resources.dart';
 
 class Calender extends StatelessWidget {
-  Calender({super.key});
+  const Calender({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class Calender extends StatelessWidget {
         // Handle date change.
       },
       headerProps : EasyHeaderProps(
-          selectedDateStyle : TextStyle(color: ColorResources.gray , fontSize: 17 , fontWeight: FontWeight.w300),
-          monthStyle : TextStyle(color: ColorResources.gray , fontSize: 17 , fontWeight: FontWeight.w300)
+          selectedDateStyle : TextStyle(color: ColorResources.lightGray , fontSize: 17 , fontWeight: FontWeight.w300),
+          monthStyle : TextStyle(color: ColorResources.lightGray , fontSize: 17 , fontWeight: FontWeight.w300)
 
       ),
       dayProps: EasyDayProps(
@@ -34,9 +34,9 @@ class Calender extends StatelessWidget {
             color: ColorResources.transparent,
             borderRadius: BorderRadius.circular(12.0), // Customize shape.
           ),
-          monthStrStyle: TextStyle(color: ColorResources.gray),
-          dayNumStyle: TextStyle(color: ColorResources.gray ,fontSize: 16),
-          dayStrStyle: TextStyle(color: ColorResources.gray),
+          monthStrStyle: TextStyle(color: ColorResources.lightGray),
+          dayNumStyle: TextStyle(color: ColorResources.lightGray ,fontSize: 16),
+          dayStrStyle: TextStyle(color: ColorResources.lightGray),
         ),
         activeDayStyle: DayStyle(
           dayNumStyle: TextStyle(color: ColorResources.darkGry , fontWeight: FontWeight.bold , fontSize: 20),
