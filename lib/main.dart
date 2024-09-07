@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'UI/Home/home_Screen.dart';
+import 'Utils/Theme/Theme.dart';
 
 void main(){
-  runApp(ToDoApp());
+  runApp(const ToDoApp());
 }
 class ToDoApp extends StatelessWidget {
   const ToDoApp({super.key});
@@ -13,8 +14,11 @@ class ToDoApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routName ,
+      theme: MyThemeData.lightMode,
+
       routes: {
-        HomeScreen.routName : (context) => HomeScreen(),
+        HomeScreen.routName : (context) => const HomeScreen(),
+
 
       },
     );
