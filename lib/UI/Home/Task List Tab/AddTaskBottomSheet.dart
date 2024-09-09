@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/Core/Local/firebase_utlis.dart';
+import 'package:to_do_app/Core/Model/task_model.dart';
 import 'package:to_do_app/Utils/Color%20Resources/Color_Resources.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
@@ -11,20 +13,20 @@ class AddTaskBottomSheet extends StatefulWidget {
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   var formKey = GlobalKey<FormState>();
   var selectedDate = DateTime.now();
-
+  String title = '';
+  String description = '';
   @override
   Widget build(BuildContext context) {
-    double heigth = MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).size.height;
 
     return Container(
       width: double.infinity,
-      height: heigth * 0.53,
+      height: height * 0.53,
       child: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
           children: [
-            Text('Add New Task',
-                style: Theme.of(context).textTheme.bodyLarge),
+            Text('Add New Task', style: Theme.of(context).textTheme.bodyLarge),
             Form(
                 key: formKey,
                 child: Column(
@@ -36,6 +38,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                           return 'Please Enter Task Title';
                         }
                         return null;
+                      },
+                      onChanged: (text){
+                        title = text ;
                       },
                       decoration: InputDecoration(
                           hintText: 'Enter the Task Title',
@@ -54,6 +59,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                         }
                         return null;
                       },
+                      onChanged: (text){
+                        description = text ;
+                      },
                       maxLines: 3,
                     ),
                     SizedBox(
@@ -68,17 +76,20 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                       },
                       child: Text(
                         '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}',
-                        textAlign: TextAlign.center,style: TextStyle(color: ColorResources.darkGry),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: ColorResources.darkGry),
                       ),
                     ),
                     ElevatedButton(
-    style: ElevatedButton.styleFrom(backgroundColor: ColorResources.babyBlue
-                      ),
-
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: ColorResources.babyBlue),
                         onPressed: () {
                           addTask();
                         },
-                        child: Text('Add' , style: TextStyle(color: ColorResources.white),))
+                        child: Text(
+                          'Add',
+                          style: TextStyle(color: ColorResources.white),
+                        ))
                   ],
                 )),
           ],
@@ -88,7 +99,19 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   }
 
   void addTask() {
-    if (formKey.currentState?.validate() == true) {}
+    if (formKey.currentState?.validate() == true) {
+      Task task = Task(
+          title: title,
+          description: description,
+          dateTime: selectedDate,
+          isDone: true
+      );
+      FirebaseUtils.addTaskToFireStore(task).timeout(Duration(seconds: 1),
+      onTimeout: (){
+        print('Task added suss');
+        Navigator.pop(context);
+      });
+    }
   }
 
   void showCalender() async {
