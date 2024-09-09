@@ -26,10 +26,7 @@ class TaskListTab extends StatelessWidget {
               // color: ColorResources.primaryLightColor,
               height: height * 0.13,
             ),
-            const Padding(
-              padding: EdgeInsets.all(5.0),
-              child: Calender(),
-            ),
+            Calender(),
           ],
         ),
         Expanded(

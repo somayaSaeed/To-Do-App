@@ -42,8 +42,8 @@ class Calender extends StatelessWidget {
           dayNumStyle: TextStyle(color: ColorResources.darkGry , fontWeight: FontWeight.bold , fontSize: 20),
           dayStrStyle: TextStyle(color: ColorResources.darkGry),
           monthStrStyle: TextStyle(color: ColorResources.darkGry),
-
           decoration: BoxDecoration(
+
             color: ColorResources.babyOrange,
             borderRadius: BorderRadius.circular(12.0), // Customize shape.
           ),
@@ -52,4 +52,5 @@ class Calender extends StatelessWidget {
       ),
     );
   }
+
 }

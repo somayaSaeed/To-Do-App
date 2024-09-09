@@ -18,13 +18,13 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
 
     return Container(
       width: double.infinity,
-      height: heigth * 0.5,
+      height: heigth * 0.53,
       child: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
           children: [
             Text('Add New Task',
-                style: Theme.of(context).textTheme.titleMedium),
+                style: Theme.of(context).textTheme.bodyLarge),
             Form(
                 key: formKey,
                 child: Column(
@@ -72,7 +72,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                       ),
                     ),
                     ElevatedButton(
-    style: ElevatedButton.styleFrom(backgroundColor: ColorResources.primaryLightColor
+    style: ElevatedButton.styleFrom(backgroundColor: ColorResources.babyBlue
                       ),
 
                         onPressed: () {
