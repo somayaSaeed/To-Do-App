@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../Utils/Color Resources/Color_Resources.dart';
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
@@ -14,8 +13,8 @@ class SettingsTab extends StatelessWidget {
         Stack(
           children: [
             Container(
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: <Color>[Color(0xFF4196E3), Color(0xFF373598)]),

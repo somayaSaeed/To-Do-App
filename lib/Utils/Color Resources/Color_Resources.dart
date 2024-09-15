@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ColorResources {
   static Color get primaryLightColor => const Color(0xFF373598);
 
-  static Color get transparent => const Color(0xFFFFF59);
+  static Color get transparent => const Color(0x0fffff59);
 
   static Color get babyOrange => const Color(0xFFFDE3DA);
 
@@ -15,7 +15,7 @@ class ColorResources {
 
   static Color get blackText => const Color(0xD7363636);
 
-  static Color get darkBlueText => const Color(0xFF363636D7);
+  static Color get darkBlueText => const Color(0xff363636d7);
 
   static Color get red => const Color(0xFFEC4B4B);
 

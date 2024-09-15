@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do_app/Core/Local/firebase_utlis.dart';
 import 'package:to_do_app/Core/Model/task_model.dart';
+import 'package:to_do_app/Core/Provider/list%20provider.dart';
 import 'package:to_do_app/Utils/Color%20Resources/Color_Resources.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
-  AddTaskBottomSheet({super.key});
+  const AddTaskBottomSheet({super.key});
 
   @override
   State<AddTaskBottomSheet> createState() => _AddTaskBottomSheetState();
+
 }
 
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   var formKey = GlobalKey<FormState>();
   var selectedDate = DateTime.now();
+  late ListProvider listProvider;
   String title = '';
   String description = '';
   @override
   Widget build(BuildContext context) {
+    listProvider =Provider.of<ListProvider>(context);
     double height = MediaQuery.of(context).size.height;
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: height * 0.53,
       child: Padding(
@@ -46,7 +51,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                           hintText: 'Enter the Task Title',
                           hintStyle: Theme.of(context).textTheme.bodyMedium),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -64,10 +69,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                       },
                       maxLines: 3,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       'Select Date',
                     ),
                     TextButton(
@@ -106,9 +111,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           dateTime: selectedDate,
           isDone: true
       );
-      FirebaseUtils.addTaskToFireStore(task).timeout(Duration(seconds: 1),
+      FirebaseUtils.addTaskToFireStore(task).timeout(const Duration(seconds: 1),
       onTimeout: (){
-        print('Task added suss');
+        print('add task');
+        // listProvider.getAllTasksFromFireStore();
         Navigator.pop(context);
       });
     }
@@ -119,8 +125,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime.now(),
-        lastDate: DateTime.now().add(Duration(days: 365)));
+        lastDate: DateTime.now().add(const Duration(days: 365)));
     selectedDate = chosenDate ?? selectedDate;
-    setState(() {});
+    setState(() {
+
+    });
   }
 }

@@ -6,7 +6,7 @@ import 'Task List Tab/Task List tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routName = 'home_screen';
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -26,12 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(top: 8.0 , left: 5.0),
             child: Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 22.0,
                   backgroundImage: AssetImage(
                     'assets/image/sura.png',
                   ),),
-                SizedBox(width: 15,),
+                const SizedBox(width: 15,),
 
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
           height: height * .08,
           shape: const CircularNotchedRectangle(),
           notchMargin: 10,
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           child: BottomNavigationBar(
             currentIndex: selectedIndex,
             onTap: (index) {
@@ -98,14 +98,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-        body: selectedIndex==0 ? TaskListTab() : SettingsTab()
+        body: selectedIndex==0 ?  TaskListTab() :  SettingsTab()
 
     );
   }
   void addTaskBottomSheet() {
     showModalBottomSheet(
         context: context,
-        builder: (context) => AddTaskBottomSheet()
+        builder: (context) => const AddTaskBottomSheet()
     );
   }
 

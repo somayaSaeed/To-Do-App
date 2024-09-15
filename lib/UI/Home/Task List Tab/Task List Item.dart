@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/Utils/Color%20Resources/Color_Resources.dart';
 
+import '../../../Core/Model/task_model.dart';
+
 class TaskListItem extends StatelessWidget {
-  const TaskListItem({super.key});
+   Task task ;
+   TaskListItem({super.key, required this.task});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,7 @@ class TaskListItem extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 10.0, bottom: 10 , ),
+          margin: const EdgeInsets.only(top: 10.0, bottom: 10 , ),
           height: height * 0.13,
           width: width * 0.85,
           decoration: BoxDecoration(
@@ -22,7 +25,7 @@ class TaskListItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                margin: EdgeInsets.only(left: 17),
+                margin: const EdgeInsets.only(left: 17),
                 color: ColorResources.babyBlue,
                 height: height * 0.07,
                 width: width * 0.0025,
@@ -36,11 +39,11 @@ class TaskListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Task One',
+                      task.title,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     Text(
-                      'Task One Description ...',
+                      task.description,
                       style: Theme.of(context).textTheme.bodyMedium,
                       maxLines: 2,
 

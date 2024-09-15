@@ -16,10 +16,11 @@ class SettingsTab extends StatelessWidget {
             Container(
               color: ColorResources.primaryLightColor,
               height: height * 0.11,
+
             )
           ],
         )
       ],
-    );;
+    );
   }
 }
