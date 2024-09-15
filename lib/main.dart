@@ -12,7 +12,7 @@ void main()async{
   WidgetsFlutterBinding.ensureInitialized();
   Platform.isAndroid ?
   await Firebase.initializeApp(
-    options:  FirebaseOptions(
+    options:  const FirebaseOptions(
         apiKey: 'AIzaSyA1IXO_sjLH_Gy5BH0VI8TEspLA0x-1S8o',
         appId: 'com.example.to_do_app',
         messagingSenderId: '494923511027',
@@ -25,7 +25,7 @@ void main()async{
   await FirebaseFirestore.instance.disableNetwork();
   runApp(ChangeNotifierProvider(
     create:(context) => ListProvider(),
-      child: ToDoApp()));
+      child: const ToDoApp()));
 }
 class ToDoApp extends StatelessWidget {
   const ToDoApp({super.key});
@@ -38,7 +38,7 @@ class ToDoApp extends StatelessWidget {
       theme: MyThemeData.lightMode,
 
       routes: {
-        HomeScreen.routName : (context) =>  HomeScreen(),
+        HomeScreen.routName : (context) =>  const HomeScreen(),
 
 
       },

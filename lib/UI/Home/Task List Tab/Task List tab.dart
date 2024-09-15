@@ -26,6 +26,7 @@ class _TaskListTabState extends State<TaskListTab> {
     }
 
     return Column(
+
       children: [
         Stack(
           children: [
@@ -39,7 +40,7 @@ class _TaskListTabState extends State<TaskListTab> {
                       ColorResources.primaryLightColor
                     ]),
               ),
-              // color: ColorResources.primaryLightColor,
+
               height: height * 0.13,
             ),
             const Calender(),

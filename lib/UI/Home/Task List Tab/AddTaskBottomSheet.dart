@@ -114,7 +114,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       FirebaseUtils.addTaskToFireStore(task).timeout(const Duration(seconds: 1),
       onTimeout: (){
         print('add task');
-        // listProvider.getAllTasksFromFireStore();
+        listProvider.getAllTasksFromFireStore();
         Navigator.pop(context);
       });
     }
