@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 
 class SettingsTab extends StatelessWidget {
@@ -10,20 +11,25 @@ class SettingsTab extends StatelessWidget {
 
     return Column(
       children: [
-        Stack(
+        Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[Color(0xFF4196E3), Color(0xFF373598)]),
+          ),
+          // color: ColorResources.primaryLightColor,
+          height: height * 0.13,
+        ),
+        Column(
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[Color(0xFF4196E3), Color(0xFF373598)]),
-              ),
-              // color: ColorResources.primaryLightColor,
-              height: height * 0.13,
-            ),
+             Text('Language:  '),
+            Text('Theme:  '),
+
           ],
         )
+
+
       ],
     );
   }
