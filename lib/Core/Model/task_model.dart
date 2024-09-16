@@ -8,7 +8,7 @@ class Task{
   DateTime dateTime ;
   bool isDone ;
 
-  Task({this.id ='' ,required this.title ,required this.description ,required this.dateTime ,this.isDone = false});
+  Task({this.id ='' ,required this.title ,required this.description ,required this.dateTime ,this.isDone = true});
 
   Task.fromFireStore(Map<String,dynamic> data):this (
     id: data['id'] as String,

@@ -45,7 +45,10 @@ class _TaskListTabState extends State<TaskListTab> {
             ),
             const Calender(),
           ],
+
+
         ),
+        SizedBox(height: height*0.015,),
         Expanded(
           child: ListView.builder(
             itemBuilder: (context, index) {
@@ -55,8 +58,10 @@ class _TaskListTabState extends State<TaskListTab> {
             },
             itemCount: listProvider.tasksList.length,
           ),
-        )
+        ),
+
       ],
+
     );
   }
 

@@ -21,7 +21,7 @@ class SettingsTab extends StatelessWidget {
           // color: ColorResources.primaryLightColor,
           height: height * 0.13,
         ),
-        Column(
+        const Column(
           children: [
              Text('Language:  '),
             Text('Theme:  '),

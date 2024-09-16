@@ -1,18 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../Core/Provider/list provider.dart';
 import '../../../Utils/Color Resources/Color_Resources.dart';
 
-class Calender extends StatelessWidget {
+class Calender extends StatefulWidget {
   const Calender({super.key});
 
   @override
+  State<Calender> createState() => _CalenderState();
+}
+
+
+
+class _CalenderState extends State<Calender> {
+  late ListProvider listProvider;
+
+  @override
   Widget build(BuildContext context) {
+    var listProvider = Provider.of<ListProvider>(context);
+
     return EasyDateTimeLine(
-      initialDate: DateTime.now(),
+      initialDate: listProvider.selectDate,
       onDateChange: (selectedDate) {
-        // Handle date change.
+        listProvider.changeSelectDate(selectedDate);
       },
       headerProps : EasyHeaderProps(
           selectedDateStyle : TextStyle(color: ColorResources.lightGray , fontSize: 17 , fontWeight: FontWeight.w300),
@@ -21,12 +34,14 @@ class Calender extends StatelessWidget {
       ),
       dayProps: EasyDayProps(
         todayStyle: DayStyle(
-          monthStrStyle: TextStyle(color: ColorResources.white),
-          dayNumStyle: TextStyle(color: ColorResources.white , fontWeight: FontWeight.bold , fontSize: 20),
-          dayStrStyle: TextStyle(color: ColorResources.white),
+          monthStrStyle: TextStyle(color: ColorResources.darkGry),
+          dayNumStyle: TextStyle(color: ColorResources.darkGry , fontWeight: FontWeight.bold , fontSize: 20),
+          dayStrStyle: TextStyle(color: ColorResources.darkGry),
+
           decoration: BoxDecoration(
-            color: ColorResources.orange,
-            borderRadius: BorderRadius.circular(12.0),
+            color: ColorResources.babyOrange,
+            borderRadius: BorderRadius.circular(12.0 ),
+
           ),
         ),
         inactiveDayStyle: DayStyle(
@@ -39,12 +54,12 @@ class Calender extends StatelessWidget {
           dayStrStyle: TextStyle(color: ColorResources.lightGray),
         ),
         activeDayStyle: DayStyle(
-          dayNumStyle: TextStyle(color: ColorResources.darkGry , fontWeight: FontWeight.bold , fontSize: 20),
-          dayStrStyle: TextStyle(color: ColorResources.darkGry),
-          monthStrStyle: TextStyle(color: ColorResources.darkGry),
+          dayNumStyle: TextStyle(color: ColorResources.white , fontWeight: FontWeight.bold , fontSize: 20),
+          dayStrStyle: TextStyle(color: ColorResources.white),
+          monthStrStyle: TextStyle(color: ColorResources.white),
           decoration: BoxDecoration(
 
-            color: ColorResources.babyOrange,
+            color: ColorResources.orange,
             borderRadius: BorderRadius.circular(12.0), // Customize shape.
           ),
 
@@ -52,5 +67,4 @@ class Calender extends StatelessWidget {
       ),
     );
   }
-
 }

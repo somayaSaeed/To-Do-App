@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do_app/Core/Provider/list%20provider.dart';
+import 'package:to_do_app/UI/Board/Board%20Screen.dart';
 import 'UI/Home/home_Screen.dart';
 import 'Utils/Theme/Theme.dart';
 import 'package:provider/provider.dart';
@@ -34,11 +35,14 @@ class ToDoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeScreen.routName ,
+      initialRoute: SplashScreen.routName ,
       theme: MyThemeData.lightMode,
 
       routes: {
-        HomeScreen.routName : (context) =>  const HomeScreen(),
+        SplashScreen.routName : (context) =>   SplashScreen(),
+        HomeScreen.routName : (context) =>   HomeScreen(),
+        // SplashScreen.routName : (context) =>   SplashScreen(),
+
 
 
       },
