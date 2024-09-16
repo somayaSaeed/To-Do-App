@@ -73,6 +73,11 @@ class MyThemeData {
           fontSize:16 ,
           fontWeight: FontWeight.w400 ,
         ),
+          labelLarge:GoogleFonts.roboto(
+            color:ColorResources.babyBlue,
+            fontSize:20 ,
+            fontWeight: FontWeight.w600 ,
+          )
 
 
       )

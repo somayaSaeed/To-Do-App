@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/Core/Provider/list%20provider.dart';
 import 'package:to_do_app/UI/Board/Board%20Screen.dart';
 import 'UI/Home/home_Screen.dart';
-import 'UI/Register_Login/login_screen.dart';
+import 'UI/Register_Login/LoginScreen.dart';
+import 'UI/Register_Login/Register Screen.dart';
 import 'Utils/Theme/Theme.dart';
 import 'package:provider/provider.dart';
 
@@ -36,13 +37,13 @@ class ToDoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: LoginScreen.routName ,
+      initialRoute: RegisterScreen.routName ,
       theme: MyThemeData.lightMode,
 
       routes: {
         SplashScreen.routName : (context) =>   SplashScreen(),
         HomeScreen.routName : (context) =>   HomeScreen(),
-        LoginScreen.routName : (context) =>   LoginScreen(),
+        RegisterScreen.routName : (context) =>   RegisterScreen(),
 
 
 
