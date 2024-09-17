@@ -6,7 +6,7 @@ import '../Home/home_Screen.dart';
 
 class SplashScreen extends StatefulWidget {
   static String routName = 'splash_screen';
-   SplashScreen({super.key});
+   const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();

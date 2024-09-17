@@ -74,9 +74,9 @@ class MyThemeData {
           fontWeight: FontWeight.w400 ,
         ),
           labelLarge:GoogleFonts.roboto(
-            color:ColorResources.babyBlue,
+            color:ColorResources.gray,
             fontSize:20 ,
-            fontWeight: FontWeight.w600 ,
+            fontWeight: FontWeight.w400 ,
           )
 
 

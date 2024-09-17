@@ -37,13 +37,14 @@ class ToDoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: RegisterScreen.routName ,
+      initialRoute: Loginscreen.routName ,
       theme: MyThemeData.lightMode,
 
       routes: {
-        SplashScreen.routName : (context) =>   SplashScreen(),
-        HomeScreen.routName : (context) =>   HomeScreen(),
+        SplashScreen.routName : (context) =>   const SplashScreen(),
+        HomeScreen.routName : (context) =>   const HomeScreen(),
         RegisterScreen.routName : (context) =>   RegisterScreen(),
+        Loginscreen.routName : (context) =>   Loginscreen(),
 
 
 

@@ -102,7 +102,7 @@ class _TaskListItemState extends State<TaskListItem> {
                   },
                   child: !widget.task.isDone
                       ? Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Text('Done!',
                               style: Theme.of(context)
                                   .textTheme

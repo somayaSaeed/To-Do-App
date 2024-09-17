@@ -16,7 +16,7 @@ class ColorResources {
 
   static Color get blackText => const Color(0xD7363636);
 
-  static Color get darkBlueText => const Color(0x363636d7);
+  static Color get darkBlueText => const Color(0xFF274678);
 
   static Color get red => const Color(0xFFEC4B4B);
 
