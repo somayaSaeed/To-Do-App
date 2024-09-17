@@ -131,30 +131,33 @@ class RegisterScreen extends StatelessWidget {
                     bgColor2: ColorResources.primaryLightColor,
                     textColor: ColorResources.blackText,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Already Have an account? ",
-                        style: TextStyle(
-                            color: ColorResources.bgDarkColor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (_) => Loginscreen()));
-                        },
-                        child: Text(
-                          "SignIn",
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Already Have an account? ",
                           style: TextStyle(
-                              color: ColorResources.babyBlue,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                              color: ColorResources.gray,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400),
                         ),
-                      ),
-                    ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (_) => Loginscreen()));
+                          },
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                                color: ColorResources.babyBlue,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
                   ), SizedBox(
                     height: height * 0.03,
                   ),
