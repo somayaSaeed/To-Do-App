@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:to_do_app/UI/Register_Login/LoginScreen.dart';
 
 import '../Home/home_Screen.dart';
 
@@ -18,9 +19,9 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 7), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) =>  const HomeScreen()));
+          MaterialPageRoute(builder: (_) =>  const LoginScreen()));
     });
   }
 

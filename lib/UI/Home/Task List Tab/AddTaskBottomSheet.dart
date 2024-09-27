@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_app/Core/Local/firebase_utlis.dart';
 import 'package:to_do_app/Core/Model/task_model.dart';
 import 'package:to_do_app/Core/Provider/list%20provider.dart';
 import 'package:to_do_app/Utils/Color%20Resources/Color_Resources.dart';
 
+import '../../../Core/Provider/auth user provider.dart';
+
 class AddTaskBottomSheet extends StatefulWidget {
   const AddTaskBottomSheet({super.key});
 
   @override
   State<AddTaskBottomSheet> createState() => _AddTaskBottomSheetState();
-
 }
 
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   var formKey = GlobalKey<FormState>();
   var selectedDate = DateTime.now();
+
   late ListProvider listProvider;
   String title = '';
   String description = '';
   @override
   Widget build(BuildContext context) {
-    listProvider =Provider.of<ListProvider>(context);
+    listProvider = Provider.of<ListProvider>(context);
+
     double height = MediaQuery.of(context).size.height;
 
     return SizedBox(
@@ -44,8 +48,8 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                         }
                         return null;
                       },
-                      onChanged: (text){
-                        title = text ;
+                      onChanged: (text) {
+                        title = text;
                       },
                       decoration: InputDecoration(
                           hintText: 'Enter the Task Title',
@@ -64,8 +68,8 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                         }
                         return null;
                       },
-                      onChanged: (text){
-                        description = text ;
+                      onChanged: (text) {
+                        description = text;
                       },
                       maxLines: 3,
                     ),
@@ -109,12 +113,29 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           title: title,
           description: description,
           dateTime: selectedDate,
-          isDone: true
-      );
-      FirebaseUtils.addTaskToFireStore(task).timeout(const Duration(milliseconds: 10),
-      onTimeout: (){
-        print('add task');
-        listProvider.getAllTasksFromFireStore();
+          isDone: true);
+      var authProvider = Provider.of<AuthUserProvider>(context, listen: false);
+      FirebaseUtils.addTaskToFireStore(task, authProvider.currentUser!.id!)
+          .then((value) {
+        // Fluttertoast.showToast(
+        //     msg: "Task Added",
+        //     toastLength: Toast.LENGTH_SHORT,
+        //     gravity: ToastGravity.CENTER,
+        //     timeInSecForIosWeb: 1,
+        //     backgroundColor: Colors.black26,
+        //     textColor: Colors.white,
+        //     fontSize: 16.0);
+        listProvider.getAllTasksFromFireStore(authProvider.currentUser!.id!);
+      }).timeout(const Duration(milliseconds: 10), onTimeout: () {
+        Fluttertoast.showToast(
+            msg: "Task Added",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.black26,
+            textColor: Colors.white,
+            fontSize: 16.0);
+        listProvider.getAllTasksFromFireStore(authProvider.currentUser!.id!);
         Navigator.pop(context);
       });
     }
@@ -127,8 +148,6 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         firstDate: DateTime.now(),
         lastDate: DateTime.now().add(const Duration(days: 365)));
     selectedDate = chosenDate ?? selectedDate;
-    setState(() {
-
-    });
+    setState(() {});
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_app/Core/Provider/list%20provider.dart';
+import '../../../Core/Provider/auth user provider.dart';
 import '../../../Utils/Color Resources/Color_Resources.dart';
 import 'Calender.dart';
 import 'Task List Item.dart';
@@ -21,8 +22,9 @@ class _TaskListTabState extends State<TaskListTab> {
   Widget build(BuildContext context) {
     var listProvider = Provider.of<ListProvider>(context);
     double height = MediaQuery.of(context).size.height;
+    var authProvider = Provider.of<AuthUserProvider>(context);
     if(listProvider.tasksList.isEmpty){
-      listProvider.getAllTasksFromFireStore();
+      listProvider.getAllTasksFromFireStore(authProvider.currentUser!.id!);
     }
 
     return Column(

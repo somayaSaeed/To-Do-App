@@ -3,6 +3,7 @@ import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../Core/Provider/auth user provider.dart';
 import '../../../Core/Provider/list provider.dart';
 import '../../../Utils/Color Resources/Color_Resources.dart';
 
@@ -21,11 +22,13 @@ class _CalenderState extends State<Calender> {
   @override
   Widget build(BuildContext context) {
     var listProvider = Provider.of<ListProvider>(context);
+    var authProvider = Provider.of<AuthUserProvider>(context);
+
 
     return EasyDateTimeLine(
       initialDate: listProvider.selectDate,
       onDateChange: (selectedDate) {
-        listProvider.changeSelectDate(selectedDate);
+        listProvider.changeSelectDate(selectedDate , authProvider.currentUser!.id!);
       },
       headerProps : EasyHeaderProps(
           selectedDateStyle : TextStyle(color: ColorResources.lightGray , fontSize: 17 , fontWeight: FontWeight.w300),
